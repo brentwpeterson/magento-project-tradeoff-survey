@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <codebase module="client">
+            <title>Codebase Dashboard</title>
+            <sort_order>15</sort_order>
+            <children>
+                <client module="client">
+                    <title>Codebase Client</title>
+                    <sort_order>0</sort_order>
+                    <children>
+                        <survey module="client">
+                            <title>Wagento Trade Off Survey</title>
+                            <sort_order>0</sort_order>
+                            <action>admin_client/adminhtml_clientbackend</action>
+                        </survey>
+                        <report module="client">
+                            <title>Survey Report</title>
+                            <sort_order>10</sort_order>
+                            <action>admin_client/adminhtml_report</action>
+                        </report>
+                    </children>
+                </client>
+            </children>
+        </codebase>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <client translate="title" module="client">
+                                        <title>Client Section</title>
+                                        <sort_order>0</sort_order>
+                                    </client>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <codebase translate="title" module="codebase">
+                        <title>Wagento - Codebase</title>
+                        <action>codebase/adminhtml_tickets</action>
+                        <children>
+                            <client translate="title" module="client">
+                                <title>Client</title>
+                                <sort_order>1000</sort_order>
+                                <children>
+                                    <survey translate="title" module="client">
+                                        <title>Survey</title>
+                                        <sort_order>0</sort_order>
+                                    </survey>
+                                    <report translate="title" module="client">
+                                        <title>Report</title>
+                                        <sort_order>10</sort_order>
+                                    </report>
+                                </children>
+                            </client>
+                        </children>
+                    </codebase>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

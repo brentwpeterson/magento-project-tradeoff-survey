@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <client_adminhtml_clientbackend_index>
+        <reference name="content">
+            <block type="client/adminhtml_clientbackend" name="clientbackend" template="client/clientbackend.phtml"/>
+        </reference>
+    </client_adminhtml_clientbackend_index>
+
+    <client_adminhtml_report_index>
+        <reference name="content">
+            <block type="client/adminhtml_report" name="report" as="report"/>
+        </reference>
+    </client_adminhtml_report_index>
+</layout>

@@ -1,0 +1,12 @@
+#survey-container { border: 3px #00B4E4 solid; border-radius: 15px; background: #FAFAFA; padding: 15px; }
+#survey-container label { font-weight: bold; }
+#survey-table th { background: #00B4E4; font-size: 18px; font-weight: bold; line-height: 24px; color: white; }
+#survey-table th, #survey-table td { padding: 6px; }
+#survey-table tr.odd td { background: #D3E7F5; }
+#survey-table tr.even td { background: #EDF4FA; }
+
+.aspect { font-weight: bold; }
+.aspect-title { }
+#survey-container .actions { display: inline; }
+.actions a, .email-available { display: inline; margin: 0 5px; font-style: italic; }
+.email-available { color: green; }

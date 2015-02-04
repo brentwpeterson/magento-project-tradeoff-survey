@@ -1,0 +1,106 @@
+<?php
+?>
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl('css/client_survey.css')?>" type="text/css" />
+<div id="survey-gudie">
+    <h2 class="title"><?php echo Mage::getStoreConfig('client/survey/name');?></h2>
+</div>
+<br />
+
+<div id="survey-container">
+    <form id="client-survey" action="<?php echo Mage::helper('adminhtml')->getUrl('admin_client/adminhtml_clientbackend/save')?>" method="POST">
+        <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
+        <!--Survey content-->
+        <div id="survey-table">
+            <table>
+                <tr>
+                    <th><?php echo $this->__('Project Driver')?></th>
+                    <th><?php echo $this->__('Points*')?></th>
+                    <th><?php echo $this->__('Comment')?></th>
+                </tr>
+                <tr class="aspect odd">
+                    <td>
+                        <div class="aspect-title"><?php echo $this->__('Cost'); ?><div>
+                        <div class="aspect-description"><?php echo $this->__('Minimize the cost of the project; cut scope or increase duration to avoid going over budget.'); ?><div>
+                    </td>
+                    <td>
+                        <select name="cost">
+                        <?php for($i = 0; $i < 11; $i++):?>
+                            <option value="<?php echo $i?>"><?php echo $i?></option>
+                        <?php endfor;?>
+                        </select>
+                    </td>
+                    <td><input type="text" name="cost_comment"/></td>
+                </tr>
+                <tr class="aspect even">
+                    <td>
+                        <div class="aspect-title"><?php echo $this->__('Duration'); ?><div>
+                        <div class="aspect-description"><?php echo $this->__('Minimize the duration of the project; cut scope or increase budget to avoid going over schedule.'); ?><div>
+                    </td>
+                    <td>
+                        <select name="duration">
+                        <?php for($i = 0; $i < 11; $i++):?>
+                            <option value="<?php echo $i?>"><?php echo $i?></option>
+                        <?php endfor;?>
+                        </select>
+                    </td>
+                    <td><input type="text" name="duration_comment"/></td>
+                </tr>
+                <tr class="aspect odd">
+                    <td>
+                        <div class="aspect-title"><?php echo $this->__('User Adoption'); ?><div>
+                        <div class="aspect-description"><?php echo $this->__('Maximize the likehood that users will adopt the solution; increase scope, budget and schedule if necessary.'); ?><div>
+                    </td>
+                    <td>
+                        <select name="user_adoption">
+                        <?php for($i = 0; $i < 11; $i++):?>
+                            <option value="<?php echo $i?>"><?php echo $i?></option>
+                        <?php endfor;?>
+                        </select>
+                    </td>
+                    <td><input type="text" name="user_adoption_comment"/></td>
+                </tr>
+                <tr class="aspect even">
+                    <td>
+                        <div class="aspect-title"><?php echo $this->__('Project Goals'); ?><div>
+                        <div class="aspect-description"><?php echo $this->__('Focus on the project success criteria; adjust approach, scope, budget and schedule if necessary to achieve over-arching business goals.'); ?><div>
+                    </td>
+                    <td>
+                        <select name="project_goals">
+                        <?php for($i = 0; $i < 11; $i++):?>
+                            <option value="<?php echo $i?>"><?php echo $i?></option>
+                        <?php endfor;?>
+                        </select>
+                    </td>
+                    <td><input type="text" name="project_goals_comment"/></td>
+                </tr>
+                <tr class="aspect odd">
+                    <td>
+                        <div class="aspect-title"><?php echo $this->__('Certainty'); ?><div>
+                        <div class="aspect-description"><?php echo $this->__('Minimize the risk that budgets and timelines will change; over-plan for contingencies even if it result in larger than desired budget or longer than desired schedule.'); ?><div>
+                    </td>
+                    <td>
+                        <select name="certainty">
+                        <?php for($i = 0; $i < 11; $i++):?>
+                            <option value="<?php echo $i?>"><?php echo $i?></option>
+                        <?php endfor;?>
+                        </select>
+                    </td>
+                    <td><input type="text" name="certainty_comment"/></td>
+                </tr>
+            </table>
+            <br />
+
+            <button id="submit-survey" type="button" onclick="submitForm()">Submit</button>
+            &nbsp;
+            <button id="reset-survey" type="button" onclick="resetForm()">Reset Form</button>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+//< ![CDATA[
+    var survey = <?php echo $this->getSurveyJson()?>;
+    var client_survey = new varienForm('client-survey');
+//]]>
+</script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/client_survey.js')?>"></script>
